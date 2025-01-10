@@ -1,10 +1,14 @@
 <script lang="ts">
-  import Login from "./lib/Login.svelte";
+  import Login from "./pages/Login.svelte";
+  import Register from "./pages/Register.svelte";
+
+  import { currentPage, Page } from "./lib/stores";
 </script>
 
 <main>
-  <Login>
-    
-  </Login>
+  {#if $currentPage === Page.LOGIN}
+    <Login />
+  {:else if $currentPage === Page.REGISTER}
+    <Register />
+  {/if}
 </main>
-
